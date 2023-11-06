@@ -20,6 +20,15 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    const googleLogin = ()=>{
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider)
+    }
+
+    const logOut = ()=>{
+        setLoading(true)
+        return signOut(auth)
+    }
 
     const handleUpdateProfile = (name, img) => {
         return updateProfile(auth.currentUser, {
@@ -50,10 +59,10 @@ const AuthProvider = ({ children }) => {
         loading,
         createUser,
         loginUser,
-    //     googleLogin,
-    //     logOut,
-    //     handleUpdateProfile
-    // }
+        googleLogin,
+        logOut,
+        handleUpdateProfile
+    }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
