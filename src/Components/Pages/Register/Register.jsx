@@ -1,8 +1,50 @@
+import '../../../index.css'
+import login from '../../../assets/login.jpg'
+import { Link } from 'react-router-dom';
+
 
 const Register = () => {
     return (
-        <div>
-            Register
+        <div className='relative'>
+
+            <div className='absolute flex flex-col justify-center items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] min-h-screen right-0 left-0'>
+                <form className=" py-8 px-10 rounded-lg login">
+                    <p className=' text-[#FFC501] text-4xl text-center font-bold mb-5'>Register now!</p>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-[#FFC501] text-xl font-bold">Name</span>
+                        </label>
+                        <input type="text" placeholder="Name" className="inputFild input input-bordered text-[#FFC501] text-lg font-semibold" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-[#FFC501] text-xl font-bold">Email</span>
+                        </label>
+                        <input type="email" placeholder="Email" className="inputFild input input-bordered text-[#FFC501] text-lg font-semibold" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-[#FFC501] text-xl font-bold">Password</span>
+                        </label>
+                        <input type="password" placeholder="Password" className="inputFild input
+                    text-[#FFC501] text-lg font-semibold input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-[#FFC501] text-xl font-bold">Photo URL</span>
+                        </label>
+                        <input type="url" placeholder="Photo URL" className="inputFild input
+                    text-[#FFC501] text-lg font-semibold input-bordered" required />
+                    </div>
+                    <div className='bg-[#ffc501] hover:bg-[#053C75] text-center text-[#053C75] hover:text-[#ffc501] py-3 rounded-lg text-xl font-bold w-full my-4'>
+                        <input type="submit" value="Register" />
+                    </div>
+
+                    <p className='text-[#9CA3AF] text-base font-semibold text-center mt-4'>Already have an account? Please <Link to='/login' className='text-[#ffc501] underline'>Login</Link></p>
+
+                </form>
+            </div>
+            <img className='h-screen w-full' src={login} alt="" />
         </div>
     );
 };

@@ -7,7 +7,7 @@ const Login = () => {
         <div className='relative'>
             
             <div className='absolute flex flex-col justify-center items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] min-h-screen right-0 left-0'>
-            <form className=" py-8 px-5 rounded-lg login">
+            <form className=" py-8 px-10 rounded-lg login">
                 <p className=' text-[#FFC501] text-4xl text-center font-bold mb-5'>Log In now!</p>
                 <div className="form-control">
                     <label className="label">
@@ -31,7 +31,7 @@ const Login = () => {
                 <span className='text-[#FFC501] text-sm font-semibold'>Continue With Google</span>
                 </div>
 
-                    <p className='text-[#9CA3AF] text-base font-semibold text-center mt-4'>New to Stack Jobs? <Link to='/register' className='text-[#ffc501]'>Register</Link></p>
+                    <p className='text-[#9CA3AF] text-base font-semibold text-center mt-4'>New to Stack Jobs? Please <Link to='/register' className='text-[#ffc501] underline'>Register</Link></p>
 
             </form>
         </div>
