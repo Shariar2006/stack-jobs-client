@@ -1,17 +1,42 @@
-import { createContext } from "react";
+/* eslint-disable react/prop-types */
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createContext, useState } from "react";
+import auth from "../../Firebase/Firebase.config";
 
 export const AuthContext = createContext()
 
-const AuthProvider = () => {
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
+    const createUser = (email, password) => {
+        setLoading(true)
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
 
+    const handleUpdateProfile = (name, img) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: img,
+        })
+            .then(() => {
+                // Profile updated!
+                // ...
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
 
     const authInfo = {
-
+        user,
+        loading,
+        createUser,
+        handleUpdateProfile
     }
     return (
         <AuthContext.Provider value={authInfo}>
-            
+            {children}
         </AuthContext.Provider>
     );
 };

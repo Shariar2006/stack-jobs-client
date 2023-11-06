@@ -1,39 +1,66 @@
 import '../../../index.css'
 import login from '../../../assets/login.jpg'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthContext/AuthProvider';
 
 
 const Register = () => {
+
+    const { createUser, handleUpdateProfile } = useContext(AuthContext)
+
+    const handleRegister = e => {
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+        const url = form.url.value
+        console.log(name, email, password, url)
+
+        createUser(email, password)
+        .then(result=>{
+            console.log(
+                result
+            )
+            handleUpdateProfile(name, url)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+
+    }
+
     return (
         <div className='relative'>
 
             <div className='absolute flex flex-col justify-center items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] min-h-screen right-0 left-0'>
-                <form className=" py-8 px-10 rounded-lg login">
+                <form onSubmit={handleRegister} className=" py-8 px-10 rounded-lg login">
                     <p className=' text-[#FFC501] text-4xl text-center font-bold mb-5'>Register now!</p>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-[#FFC501] text-xl font-bold">Name</span>
                         </label>
-                        <input type="text" placeholder="Name" className="inputFild input input-bordered text-[#FFC501] text-lg font-semibold" required />
+                        <input type="text" name='name' placeholder="Name" className="inputFild input input-bordered text-[#FFC501] text-lg font-semibold" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-[#FFC501] text-xl font-bold">Email</span>
                         </label>
-                        <input type="email" placeholder="Email" className="inputFild input input-bordered text-[#FFC501] text-lg font-semibold" required />
+                        <input type="email" name='email' placeholder="Email" className="inputFild input input-bordered text-[#FFC501] text-lg font-semibold" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-[#FFC501] text-xl font-bold">Password</span>
                         </label>
-                        <input type="password" placeholder="Password" className="inputFild input
+                        <input type="password" name='password' placeholder="Password" className="inputFild input
                     text-[#FFC501] text-lg font-semibold input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-[#FFC501] text-xl font-bold">Photo URL</span>
                         </label>
-                        <input type="url" placeholder="Photo URL" className="inputFild input
+                        <input type="url" name='url' placeholder="Photo URL" className="inputFild input
                     text-[#FFC501] text-lg font-semibold input-bordered" required />
                     </div>
                     <div className='bg-[#ffc501] hover:bg-[#053C75] text-center text-[#053C75] hover:text-[#ffc501] py-3 rounded-lg text-xl font-bold w-full my-4'>
