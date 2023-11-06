@@ -35,23 +35,22 @@ const Banner = () => {
         }
     }
 
-    console.log(animatedBanner)
 
     window.addEventListener('scroll', scroll);
 
 
 
     return (
-        <div className="banner">
+        <div className="banner hidden md:block">
             <div className="parallax">
                 <img src={banner1} alt="" />
                 <img src={banner2} id="bannar2" alt="" />
                 <img src={banner3} id="bannar3" alt="" />
                 <img src={banner5} id="bannar5" alt="" />
                 <img src={banner6} id="bannar6" alt="" />
-                <h1 id="text" >
+                <h1 id="text" className="lg:font-bold" >
                     
-                    <span style={{ color: '#04396F', fontWeight: 'bold' }}>
+                    <span style={{ color: '#04396F',  }}>
                         {/* Style will be inherited from the parent element */}
                         <Typewriter
                             words={['Work for Us', 'Look and Find Jobs', 'Getting a Jobs', 'Part time Jobs']}

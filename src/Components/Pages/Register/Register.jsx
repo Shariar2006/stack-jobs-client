@@ -1,8 +1,10 @@
 import '../../../index.css'
 import login from '../../../assets/login.jpg'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthContext/AuthProvider';
+import swal from 'sweetalert';
+
 
 
 const Register = () => {
@@ -18,16 +20,32 @@ const Register = () => {
         const url = form.url.value
         console.log(name, email, password, url)
 
+        if (password.length < 6) {
+            swal("Sorry!", "Your password must be at least 6 characters!", "error");
+            return;
+        }
+        else if (!/(?=.*[A-Z])/.test(password)) {
+            swal("Sorry!", "Your password must be at least one uppercase characters!", "error");
+            return
+        }
+        else if (!/(?=.*[!@#$%^&*])/.test(password)) {
+            swal("Sorry!", "Your password must be at least one special character!", "error");
+            return
+        }
+
         createUser(email, password)
-        .then(result=>{
-            console.log(
-                result
-            )
-            handleUpdateProfile(name, url)
-        })
-        .catch(error=>{
-            console.log(error)
-        })
+            .then(result => {
+                console.log(
+                    result
+                )
+                e.target.reset()
+                swal("Good job!", "You are successfully Registration!", "success");
+                <Navigate to='/login'></Navigate>
+                handleUpdateProfile(name, url)
+            })
+            .catch(() => {      
+                swal("Sorry!", "This email already used!", "error");
+            })
 
     }
 

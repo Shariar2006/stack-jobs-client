@@ -1,8 +1,20 @@
 // import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo2.png"
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext/AuthProvider";
 
 const NavBar = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+    console.log(user)
+    const handleLogOut =()=>{
+        logOut()
+            .then(() => { })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 
     const navLink = <div className="lg:flex text-lg font-semibold">
         <li><NavLink to={'/'}
@@ -54,9 +66,22 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="text-lg font-semibold">
-                    <NavLink to={'/login'}
-                        className={({ isActive, isPending }) => isPending ? "pending" : isActive ? " text-[#FFC501] text-lg font-semibold rounded-lg px-1 py-2 " : "mx-1 text-[#04396F]"}
-                    >Login</NavLink>
+
+                {
+                        user?.email ? <div className="flex items-center">
+                            <p className="text-xs lg:text-xl  font-semibold">{user.displayName}</p>
+                            <img className="rounded-full w-9 mx-1" src={user.photoURL} alt="" />
+                            <a onClick={handleLogOut} href="" className="cursor-pointer text-xs lg:text-xl">Log Out</a>
+                        </div> :
+                            <ul>
+                                <li>
+                                    <NavLink to={'/login'}
+                                        className={({ isActive, isPending }) => isPending ? "pending" : isActive ? " text-[#FFC501] text-lg font-semibold rounded-lg px-1 py-2 " : "mx-1 text-[#04396F]"}
+                                    >Login</NavLink>
+                                </li>
+                            </ul>
+                    }
+
                 </div>
             </div>
         </div>

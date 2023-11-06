@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { createContext, useState } from "react";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
 import auth from "../../Firebase/Firebase.config";
 
-export const AuthContext = createContext()
+export const AuthContext = createContext(null)
+const googleProvider = new GoogleAuthProvider()
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
@@ -13,6 +14,12 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
+
+    const loginUser = (email, password)=>{
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password)
+    }
+
 
     const handleUpdateProfile = (name, img) => {
         return updateProfile(auth.currentUser, {
@@ -28,12 +35,25 @@ const AuthProvider = ({ children }) => {
             });
     };
 
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            setLoading(false)
+            setUser(currentUser)
+        });
+        return () => {
+            unSubscribe();
+        }
+    }, []) 
+
     const authInfo = {
         user,
         loading,
         createUser,
-        handleUpdateProfile
-    }
+        loginUser,
+    //     googleLogin,
+    //     logOut,
+    //     handleUpdateProfile
+    // }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
