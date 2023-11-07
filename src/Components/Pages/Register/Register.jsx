@@ -79,10 +79,10 @@ const Register = () => {
                             <span className="label-text text-[#FFC501] text-xl font-bold">Photo URL</span>
                         </label>
                         <input type="url" name='url' placeholder="Photo URL" className="inputFild input
-                    text-[#FFC501] text-lg font-semibold input-bordered" required />
+                    text-[#FFC501] text-lg font-semibold input-bordered" />
                     </div>
-                    <div className='bg-[#ffc501] hover:bg-[#053C75] text-center text-[#053C75] hover:text-[#ffc501] py-3 rounded-lg text-xl font-bold w-full my-4'>
-                        <input type="submit" value="Register" />
+                    <div>
+                        <input className='btn border-none bg-[#ffc501] hover:bg-[#053C75] text-center text-[#053C75] hover:text-[#ffc501] py-3 rounded-lg text-xl font-bold w-full my-4' type="submit" value="Register" />
                     </div>
 
                     <p className='text-[#9CA3AF] text-base font-semibold text-center mt-4'>Already have an account? Please <Link to='/login' className='text-[#ffc501] underline'>Login</Link></p>

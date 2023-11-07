@@ -63,8 +63,8 @@ const Login = () => {
                         <input type="password" name='password' placeholder="Password" className="inputFild input
                     text-[#FFC501] text-lg font-semibold input-bordered" required />
                     </div>
-                    <div className='bg-[#ffc501] hover:bg-[#053C75] text-center text-[#053C75] hover:text-[#ffc501] py-3 rounded-lg text-xl font-bold w-full my-4'>
-                        <input type="submit" value="Login" />
+                    <div>
+                        <input className='btn border-none bg-[#ffc501] hover:bg-[#053C75] text-center text-[#053C75] hover:text-[#ffc501] py-3 rounded-lg text-xl font-bold w-full my-4' type="submit" value="Login" />
                     </div>
                     <p className='text-[#FFC501] text-lg font-semibold text-center'>or Sing Up Using</p>
                     <div onClick={loginWithGoogle} className='flex items-center mt-4 justify-center googleLogin rounded-lg cursor-pointer'>
