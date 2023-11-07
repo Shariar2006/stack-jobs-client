@@ -1,6 +1,7 @@
 // import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo2.png"
+import userImg from "../../assets/user.png"
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext/AuthProvider";
 
@@ -8,7 +9,7 @@ const NavBar = () => {
 
     const { user, logOut } = useContext(AuthContext)
     console.log(user)
-    const handleLogOut =()=>{
+    const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch((error) => {
@@ -67,12 +68,37 @@ const NavBar = () => {
                 </div>
                 <div className="text-lg font-semibold">
 
-                {
-                        user?.email ? <div className="flex items-center">
-                            <p className="text-xs lg:text-xl  font-semibold">{user.displayName}</p>
-                            <img className="rounded-full w-9 mx-1" src={user.photoURL} alt="" />
-                            <a onClick={handleLogOut} href="" className="cursor-pointer text-xs lg:text-xl">Log Out</a>
-                        </div> :
+                    {
+                        user?.email ?
+
+                            <div className="dropdown dropdown-end">
+
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+
+                                    {
+                                        user?.photoURL ?
+                                            <img className="rounded-full w-9 mx-1" src={user.photoURL} alt="" />
+                                            :
+                                            <img className="rounded-full w-9 mx-1" src={userImg} alt="" />
+                                    }
+
+
+                                </label>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-center border-4 border-[#FFC501]">
+                                    {
+                                        user?.photoURL ?
+                                            <img className="rounded-full w-9 mx-1" src={user.photoURL} alt="" />
+                                            :
+                                            <img className="rounded-full w-9 mx-auto" src={userImg} alt="" />
+                                    }
+                                    <p className="text-xs lg:text-lg">{user.displayName}</p>
+                                    <p className="text-xs ">{user.email}</p>
+                                    <a onClick={handleLogOut} href="" className="cursor-pointer bg-[#053972] text-[#FFC501] rounded-md my-2  text-xs lg:text-lg py-1">Log Out</a>
+                                </ul>
+                            </div>
+
+
+                            :
                             <ul>
                                 <li>
                                     <NavLink to={'/login'}

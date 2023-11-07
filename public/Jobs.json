@@ -1,0 +1,18 @@
+[
+    {
+        "category": "OnSite",
+        "img": "https://static.vecteezy.com/system/resources/thumbnails/003/001/013/small/yellow-helmet-and-at-construction-site-photo.jpg"
+    },
+    {
+        "category": "Remote",
+        "img":"https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/340468671/original/90fe6b5ec77ae3f6231acebc98b10aa77ccbab18/search-and-apply-onsite-hybrid-remote-jobs.png"
+    },
+    {
+        "category": "Hybrid",
+        "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZIvNcRpYRxSjQTwt-CMrVpHz1c1tlGMboH4oLduwxWSC7ZhmfjImNPQtRWzQD81pgwI0&usqp=CAU"
+    },
+    {
+        "category": "PartTime",
+        "img":"https://i.pinimg.com/originals/84/92/9b/84929b54dcba88c1f9831d1e2f48c2db.jpg"
+    }
+]

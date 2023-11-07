@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 
 const AllJobsTable = ({jobsCard}) => {
 
-    const { name, jobTitle, deadline, salary, postDate } = jobsCard || {}
+    const { _id, name, jobTitle, deadline, salary, postDate } = jobsCard || {}
 
     return (
         <tr className="">
@@ -19,7 +21,7 @@ const AllJobsTable = ({jobsCard}) => {
             <td className="font-bold">{deadline}</td>
             <td className="font-bold">{salary}</td>
             <th>
-                <button>Job Details</button>
+                <Link to={`/job/details/${_id}`}>Job Details</Link>
             </th>
         </tr>
     );
