@@ -9,6 +9,7 @@ const Login = () => {
     const { loginUser, googleLogin } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
+    console.log(location?.pathname)
 
     const handleLogin = e => {
         e.preventDefault()
@@ -30,6 +31,7 @@ const Login = () => {
             })
             .catch(() => {
                 swal("Sorry!", "Your email or password is incorrect!", "error");
+                navigate(location?.state ? location.state : '/')
             })
 
     }
