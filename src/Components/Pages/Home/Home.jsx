@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Banner from "./Banner";
 import axios from "axios";
 import JobsCategory from "./JobsCategory";
-import { Outlet } from "react-router-dom";
+
 
 
 const Home = () => {
