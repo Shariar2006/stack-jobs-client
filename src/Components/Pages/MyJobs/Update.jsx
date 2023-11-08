@@ -22,7 +22,7 @@ console.log(oldData)
 
         const jobUpdate = {name, jobTitle, salary, category, postDate, deadline, description, photo,}
         
-        fetch(`http://localhost:5000/myJobUpdate/${_id}`, {
+        fetch(`https://stack-jobs-server.vercel.app/myJobUpdate/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

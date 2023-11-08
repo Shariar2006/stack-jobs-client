@@ -9,11 +9,11 @@ const AppliedJobs = () => {
     const [applyJobsData, setApplyJobsData] = useState()
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/appliesJob/?email=${user.email}`, {withCredentials: true})
+        axios.get(`https://stack-jobs-server.vercel.app/appliesJob/?email=${user.email}`, {withCredentials: true})
             .then((res) => {
                 setApplyJobsData(res.data)
             })
-    }, [])
+    }, [user])
 
     console.log(applyJobsData)
 

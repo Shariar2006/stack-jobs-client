@@ -10,7 +10,7 @@ const AllJobs = () => {
     console.log(search)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allJobs')
+        axios.get('https://stack-jobs-server.vercel.app/allJobs')
             .then((res) => {
                 setAllJobs(res.data)
             })

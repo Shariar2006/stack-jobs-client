@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Link, createBrowserRouter } from "react-router-dom";
 import MainLayOut from "../MainLayOut/MainLayOut";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -63,14 +63,15 @@ const router = createBrowserRouter([
       {
         path: '/updateJob/:id',
         element: <Update></Update>,
-        loader: ({prams}) => fetch(`http://localhost:5000/myJobUpdate/${prams?.id}`)
+        loader: ({prams}) => fetch(`https://stack-jobs-server.vercel.app/myJobUpdate/${prams?.id}`)
       },
     ]
   },
   {
     path: '*',
-    element: <div>
-      <img className="w-full h-screen" src="https://i.ibb.co/7GCPj2n/20395260-1.jpg" alt="" />
+    element: <div className="relative max-w-[1550px] mx-auto">
+      <img className="w-full h-screen absolute" src="https://i.ibb.co/M2YJW5z/Capture.jpg" alt="" />
+      <Link to={'/'} className="bg-none btn relative ml-[690px] mt-[600px]">Go to Home</Link>
     </div>
   }
 ]);

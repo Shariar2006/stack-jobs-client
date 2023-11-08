@@ -27,7 +27,9 @@ const NavBar = () => {
             className={({ isActive, isPending }) => isPending ? "pending" : isActive ? " text-[#FFC501] text-lg font-semibold rounded-lg px-1 py-2 " : "mx-1 text-[#04396F]"}
         >All Jobs</NavLink></li>
 
-        <li><NavLink to={'/appliedJobs'}
+        {
+            user?.email && <div className="lg:flex">
+                <li><NavLink to={'/appliedJobs'}
             className={({ isActive, isPending }) => isPending ? "pending" : isActive ? " text-[#FFC501] text-lg font-semibold rounded-lg px-1 py-2 " : "mx-1 text-[#04396F]"}
         >Applied Jobs</NavLink></li>
 
@@ -38,6 +40,8 @@ const NavBar = () => {
         <li><NavLink to={'/myJobs'}
             className={({ isActive, isPending }) => isPending ? "pending" : isActive ? " text-[#FFC501] text-lg font-semibold rounded-lg px-1 py-2 " : "mx-1 text-[#04396F]"}
         >My Jobs</NavLink></li>
+            </div>
+        }
 
         <li><NavLink to={'/blog'}
             className={({ isActive, isPending }) => isPending ? "pending" : isActive ? " text-[#FFC501] text-lg font-semibold rounded-lg px-1 py-2 " : "mx-1 text-[#04396F]"}
@@ -60,7 +64,10 @@ const NavBar = () => {
                         {navLink}
                     </ul>
                 </div>
-                <img className="w-[250px] h-[60px]" src={logo} alt="" />
+                <div className="flex items-center gap-1">
+                <img className="w- h-[50px]" src='https://i.ibb.co/GHtwDZz/p-2-1.jpg' alt="" />
+                <span className="text-xl font-bold text-[#FFC501]">Stack Jobs</span>
+                </div>
             </div>
             <div className="">
 

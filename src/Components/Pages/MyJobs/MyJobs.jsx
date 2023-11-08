@@ -11,7 +11,7 @@ const MyJobs = () => {
     const [allJobs, setAllJobs] = useState()
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/myJobs?email=${user.email}`, {withCredentials: true})
+        axios.get(`https://stack-jobs-server.vercel.app/myJobs?email=${user.email}`, {withCredentials: true})
             .then((res) => {
                 setAllJobs(res.data)
             })

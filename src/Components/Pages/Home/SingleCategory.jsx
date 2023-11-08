@@ -11,7 +11,7 @@ const SingleCategory = () => {
     console.log(category)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allJobs')
+        axios.get('https://stack-jobs-server.vercel.app/allJobs')
             .then(res => {
                 setAllJobsCategory(res.data)
             })

@@ -24,7 +24,7 @@ const Login = () => {
                 e.target.reset()
 
                 //get token access
-                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                axios.post('https://stack-jobs-server.vercel.app/jwt', user, { withCredentials: true })
                     .then(res => {
                         console.log(res.data)
                         if (res.data.success) {
@@ -45,7 +45,7 @@ const Login = () => {
         googleLogin()
             .then((res) => {
                 console.log(res.user.email)
-                axios.post('http://localhost:5000/jwt', {email: res?.user.email}, { withCredentials: true })
+                axios.post('https://stack-jobs-server.vercel.app/jwt', {email: res?.user.email}, { withCredentials: true })
                     .then(res => {
                         console.log(res.data)
                         if (res.data.success) {

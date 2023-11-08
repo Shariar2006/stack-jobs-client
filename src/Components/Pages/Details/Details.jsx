@@ -14,7 +14,7 @@ const Details = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allJobs')
+        axios.get('https://stack-jobs-server.vercel.app/allJobs')
             .then(res => {
                 setJobDataLoad(res.data)
             })
@@ -33,7 +33,7 @@ const Details = () => {
         const link = form.link.value
         const jobName = jobCard?.jobTitle
         const information = { name, email, link, jobName }
-        axios.post('http://localhost:5000/appliesJob', information)
+        axios.post('https://stack-jobs-server.vercel.app/appliesJob', information)
             .then(res => {
                 console.log(res.data)
             })

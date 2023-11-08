@@ -30,7 +30,7 @@ const AddAJobs = () => {
         
         
 
-        axios.post('http://localhost:5000/addAJob', newJob)
+        axios.post('https://stack-jobs-server.vercel.app/addAJob', newJob)
         .then(res=>{
             if(res.data.insertedId){
                 swal("Good job!", "You job added successfully!", "success");

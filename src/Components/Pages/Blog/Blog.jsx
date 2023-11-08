@@ -118,56 +118,58 @@ const Blog = () => {
                 <br />
                 <p className="text-lg text-gray-500">
                     <span className="font-bold">
-
-                    </span>
+                    Modularity:
+                    </span> NestJS encourages a modular architecture where your application is composed of modules, each responsible for a specific functionality. This makes it easier to organize and scale your codebase.
                 </p>
                 <br />
                 <p className="text-lg text-gray-500">
                     <span className="font-bold">
-
-                    </span>
+                    Use of TypeScript:
+                    </span> NestJS is primarily built with TypeScript, a statically typed superset of JavaScript. This provides strong typing and advanced features like decorators, interfaces, and generics, which aid in code quality and maintainability.
                 </p>
                 <br />
                 <p className="text-lg text-gray-500">
                     <span className="font-bold">
-
-                    </span>
+                    Decorator-Based Programming:
+                    </span> NestJS leverages decorators for defining modules, controllers, services, and routes. Decorators help streamline the setup of components and their relationships.
                 </p>
                 <br />
                 <p className="text-lg text-gray-500">
                     <span className="font-bold">
-
-                    </span>
+                    Dependency Injection:
+                    </span> The framework supports dependency injection, which allows you to inject services and components into other parts of your application. This promotes code reusability and testability.
                 </p>
                 <br />
                 <p className="text-lg text-gray-500">
                     <span className="font-bold">
-
-                    </span>
+                    Controllers and Services:
+                    </span> NestJS separates the application's business logic into controllers and services. Controllers handle incoming requests and send responses, while services encapsulate the application's business logic.
                 </p>
                 <br />
                 <p className="text-lg text-gray-500">
                     <span className="font-bold">
-
-                    </span>
+                    Middleware:
+                    </span> Middleware functions can be added to the request/response pipeline for tasks like logging, authentication, and data validation.
                 </p>
                 <br />
                 <p className="text-lg text-gray-500">
                     <span className="font-bold">
-
-                    </span>
+                    REST and GraphQL:
+                    </span> NestJS supports both RESTful API and GraphQL API development. You can choose the approach that best suits your project's requirements
                 </p>
                 <br />
                 <p className="text-lg text-gray-500">
                     <span className="font-bold">
-
-                    </span>
+                    WebSockets:
+                    </span> Real-time functionality is supported through WebSockets, making it suitable for building applications with live updates, chat, and more.
                 </p>
                 <br />
                 <p className="text-lg text-gray-500">
                     <span className="font-bold">
+                    Testing:
+                    </span> NestJS provides testing utilities and a testing module to facilitate unit and end-to-end testing of your application.
 
-                    </span>
+
                 </p>
                 <br />
 

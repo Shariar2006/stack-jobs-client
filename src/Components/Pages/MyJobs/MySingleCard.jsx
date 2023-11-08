@@ -21,7 +21,7 @@ const MySingleCard = ({ jobsCard }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/myJobs/${id}`, {
+                    fetch(`https://stack-jobs-server.vercel.app/myJobs/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
