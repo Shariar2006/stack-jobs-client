@@ -31,7 +31,7 @@ const AllJobs = () => {
             </form>
 
             <div className="hidden md:block overflow-x-auto">
-                <table className="table">
+                <table className="table table-zebra">
                     {/* head */}
                     <thead className="bg-base-200">
                         {/* Name (logged in user's name),
