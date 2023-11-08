@@ -12,7 +12,7 @@ const AddAJobs = () => {
     const defaultName = user?.displayName
     const userEmail = user?.email
 
-    const jobCategory = ['Select Job Category', 'On Site', 'Remote', 'Part Time', 'Hybrid']
+    const jobCategory = ['Select Job Category', 'OnSite', 'Remote', 'PartTime', 'Hybrid']
 
     const handleAddJob =e=>{
         e.preventDefault()
@@ -28,21 +28,7 @@ const AddAJobs = () => {
 
         const newJob = {name, jobTitle, salary, category, postDate, deadline, description, photo, userEmail}
         
-        // fetch('http://localhost:5000/addAJob', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newJob)
-        // })
-        // .then(res=>res.json())
-        // .then(data=>{
-        //     console.log(data)
-        //     // if(data.insertedId){
-        //     //     swal("Good job!", "You product added successfully!", "success");
-        //     //     e.target.reset()
-        //     // }
-        // })
+        
 
         axios.post('http://localhost:5000/addAJob', newJob)
         .then(res=>{
