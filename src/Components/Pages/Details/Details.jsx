@@ -2,10 +2,13 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../AuthContext/AuthProvider";
+import swal from "sweetalert";
 
 const Details = () => {
     const { user } = useContext(AuthContext)
-
+    const defaultName = user?.displayName
+    const userEmail = user?.email
+    console.log(userEmail)
     const [jobCard, setJobCard] = useState()
     const [jobDataLoad, setJobDataLoad] = useState()
     const { id } = useParams()
@@ -22,6 +25,18 @@ const Details = () => {
         setJobCard(findJobData)
     }, [id, jobDataLoad])
 
+    const handleApplied = e => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const email = form.email.value
+        const link = form.link.value
+        const information = { name, email, link }
+        axios.post('http://localhost:5000/appliesJob', information)
+            .then(res => {
+                console.log(res.data)
+            })
+    }
 
 
     return (
@@ -48,15 +63,55 @@ const Details = () => {
                                     className="btn bg-[#FFC501] hover:bg-[#04396F] text-[#04396F] hover:text-[#FFC501] text-xl font-bold pt-2 pb-3 rounded-md"
                                 >Apply this job</button>
                                 :
-                                <button
-                                    className="btn bg-[#FFC501] hover:bg-[#04396F] text-[#04396F] hover:text-[#FFC501] text-xl font-bold pt-2 pb-3 rounded-md"
-                                >Apply this job</button>
+
+                                <div>
+                                    <div>
+                                        < button className="btn bg-[#FFC501] hover:bg-[#04396F] text-[#04396F] hover:text-[#FFC501] text-xl font-bold pt-2 pb-3 rounded-md" onClick={() => document.getElementById('my_modal_5').showModal()}>Apply this job</button>
+                                        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                                            <div className="modal-box">
+
+                                                <form onSubmit={handleApplied}>
+                                                    <div className="form-control">
+                                                        <label className="label">
+                                                            <span className="label-text text-[#FFC501] text-xl font-bold">Name</span>
+                                                        </label>
+                                                        <input type="email" name='email' defaultValue={userEmail} placeholder="Email" className=" input input-bordered text-[#FFC501] text-lg font-semibold" />
+                                                    </div>
+                                                    <div className="form-control">
+                                                        <label className="label">
+                                                            <span className="label-text text-[#FFC501] text-xl font-bold">Name</span>
+                                                        </label>
+                                                        <input type="text" defaultValue={defaultName} name='name' placeholder="Email" className=" input input-bordered text-[#FFC501] text-lg font-semibold" />
+                                                    </div>
+                                                    <div className="form-control">
+                                                        <label className="label">
+                                                            <span className="label-text text-[#FFC501] text-xl font-bold">Your resume link</span>
+                                                        </label>
+                                                        <input type="url" name='link' placeholder="Resume link" className=" input input-bordered text-[#FFC501] text-lg font-semibold" required />
+                                                    </div>
+
+                                                    <div className="modal-action">
+
+                                                        <input className="btn" type="submit" value="Apply" />
+
+                                                    </div>
+                                                </form>
+                                                <form method="dialog">
+                                                    {/* if there is a button in form, it will close the modal */}
+                                                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                                </form>
+
+                                            </div>
+                                        </dialog>
+                                    </div>
+                                </div>
+
                         }
                     </div>
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

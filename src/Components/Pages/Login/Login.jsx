@@ -43,10 +43,16 @@ const Login = () => {
 
     const loginWithGoogle = () => {
         googleLogin()
-            .then(() => {
-
-                swal("Good job!", "You are successfully logged in!", "success");
-                navigate(location?.state ? location.state : '/')
+            .then((res) => {
+                console.log(res.user.email)
+                axios.post('http://localhost:5000/jwt', {email: res?.user.email}, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data)
+                        if (res.data.success) {
+                            swal("Good job!", "You are successfully Logged in!", "success");
+                            navigate(location?.state ? location.state : '/')
+                        }
+                    })
 
             })
             .catch(error => { console.log(error) })

@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 
 import swal from "sweetalert";
-import Update from "./Update";
+
+import { Link } from "react-router-dom";
 
 
 
@@ -20,7 +21,7 @@ const MySingleCard = ({ jobsCard }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/allJobs/${id}`, {
+                    fetch(`http://localhost:5000/myJobs/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
@@ -62,7 +63,7 @@ const MySingleCard = ({ jobsCard }) => {
                         <button 
                         onClick={() => handleDelete(_id)}
                          className="btn w-full mb-2 bg-[#FFC501] hover:bg-[#04396F] text-[#04396F] hover:text-[#FFC501]">Delete Job</button>
-                        <Update></Update>
+                        <Link to={`/updateJob/${_id}`} className="btn w-full mb-2 bg-[#FFC501] hover:bg-[#04396F] text-[#04396F] hover:text-[#FFC501]">Job Update</Link>
                     </div>
                 </div>
             </div>

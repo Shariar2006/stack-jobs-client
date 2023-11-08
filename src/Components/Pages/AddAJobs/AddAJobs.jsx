@@ -95,7 +95,7 @@ const AddAJobs = () => {
                             <label className="label">
                                 <span className="label-text text-[#FFC501] text-xl font-bold">Post date</span>
                             </label>
-                            <input type="date" name='postDate' defaultValue={defaultName} placeholder="Post date" className="inputFild w-[252px] input input-bordered text-[#FFC501] text-lg font-semibold" required />
+                            <input type="date" name='postDate' placeholder="Post date" className="inputFild w-[252px] input input-bordered text-[#FFC501] text-lg font-semibold" required />
                         </div>
 
                         <div className="form-control">

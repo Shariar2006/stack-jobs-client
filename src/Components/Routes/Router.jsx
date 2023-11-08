@@ -11,6 +11,7 @@ import SingleCategory from "../Pages/Home/SingleCategory";
 import Details from "../Pages/Details/Details";
 import PrivateRoute from "../Private/PrivateRoute";
 import Blog from "../Pages/Blog/Blog";
+import Update from "../Pages/MyJobs/Update";
 
 
 const router = createBrowserRouter([
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
       {
         path: '/appliedJobs',
         element: <PrivateRoute><AppliedJobs></AppliedJobs></PrivateRoute>
+      },
+      {
+        path: '/updateJob/:id',
+        element: <Update></Update>,
+        loader: ({prams}) => fetch(`http://localhost:5000/myJobUpdate/${prams?.id}`)
       },
     ]
   },
