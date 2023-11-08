@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../AuthContext/AuthProvider";
-import swal from "sweetalert";
+
 
 const Details = () => {
     const { user } = useContext(AuthContext)
@@ -31,7 +31,8 @@ const Details = () => {
         const name = form.name.value
         const email = form.email.value
         const link = form.link.value
-        const information = { name, email, link }
+        const jobName = jobCard?.jobTitle
+        const information = { name, email, link, jobName }
         axios.post('http://localhost:5000/appliesJob', information)
             .then(res => {
                 console.log(res.data)
