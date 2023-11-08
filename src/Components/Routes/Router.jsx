@@ -12,6 +12,7 @@ import Details from "../Pages/Details/Details";
 import PrivateRoute from "../Private/PrivateRoute";
 import Blog from "../Pages/Blog/Blog";
 import Update from "../Pages/MyJobs/Update";
+import AboutUs from "../AboutUs/AboutUs";
 
 
 const router = createBrowserRouter([
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog></Blog>
+      },
+      {
+        path: '/aboutUs',
+        element: <AboutUs></AboutUs>
       },
       {
         path: '/appliedJobs',

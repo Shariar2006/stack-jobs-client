@@ -47,6 +47,10 @@ const NavBar = () => {
             className={({ isActive, isPending }) => isPending ? "pending" : isActive ? " text-[#FFC501] text-lg font-semibold rounded-lg px-1 py-2 " : "mx-1 text-[#04396F]"}
         >Blog</NavLink></li>
 
+        <li><NavLink to={'/aboutUs'}
+            className={({ isActive, isPending }) => isPending ? "pending" : isActive ? " text-[#FFC501] text-lg font-semibold rounded-lg px-1 py-2 " : "mx-1 text-[#04396F]"}
+        >About Us</NavLink></li>
+
         <li><NavLink to={'/register'}
             className={({ isActive, isPending }) => isPending ? "pending" : isActive ? " text-[#FFC501] text-lg font-semibold rounded-lg px-1 py-2 " : "mx-1 text-[#04396F]"}
         >Register</NavLink></li>
