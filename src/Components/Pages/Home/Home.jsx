@@ -37,7 +37,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="h-screen">
+            <div className="h-full ">
                 <TheBestPart></TheBestPart>
             </div>
             <Sponsored></Sponsored>

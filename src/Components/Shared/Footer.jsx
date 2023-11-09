@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const Footer = () => {
-    const navLink = <div className="lg:flex text-lg font-semibold ml-2">
+    const navLink = <div className="hidden md:block md:flex text-lg font-semibold ml-2">
         <li><Link to={'/'}
             className="mr-5 underline"
         >Home</Link></li>
@@ -43,7 +43,7 @@ const Footer = () => {
                 <img className="w- h-[50px]" src='https://i.ibb.co/GHtwDZz/p-2-1.jpg' alt="" />
                 <span className="text-xl font-bold text-[#FFC501]">Stack Jobs</span>
                 </div>
-                <nav className="grid grid-flow-col gap-4">
+                <nav className=" grid grid-flow-col gap-4">
                     <ul className="mr-5">
                     {navLink}
                     </ul>

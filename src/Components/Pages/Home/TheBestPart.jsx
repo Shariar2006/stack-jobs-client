@@ -3,7 +3,7 @@
 const TheBestPart = () => {
     return (
         <div>
-            <div className="hero h-screen ">
+            <div className="hero h-full ">
                 <div className="hero-content flex-col lg:flex-row ">
                     <img src="https://media.istockphoto.com/id/1465568487/photo/colleagues-watching-something-on-laptop-while-at-the-office.webp?b=1&s=170667a&w=0&k=20&c=ZsUmsBtCh9Ta8mnG1blSp6V0EqGclwqRNUQUz9Jft2w=" className="w-3/4 p-4 rounded-lg shadow-2xl" />
                     <div className="w-full p-4">
