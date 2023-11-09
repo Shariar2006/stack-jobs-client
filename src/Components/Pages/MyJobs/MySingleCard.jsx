@@ -1,13 +1,16 @@
 /* eslint-disable react/prop-types */
 
 import swal from "sweetalert";
-
+import { AuthContext } from "../../AuthContext/AuthProvider";
 import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
 
 
 
 
 const MySingleCard = ({ jobsCard }) => {
+    const { loading } = useContext(AuthContext)
+    const [loader, setLoader] = useState(true)
     const { _id, name, jobTitle, deadline, salary, postDate, photo } = jobsCard || {}
 
     const handleDelete = id => {
@@ -31,9 +34,9 @@ const MySingleCard = ({ jobsCard }) => {
                                 swal("Poof! Your imaginary card has been deleted!", {
                                     icon: "success",
                                 })
-                                // setLoader(loader)
-                                // const remaining = cardDelete?.filter(cardDelete => cardDelete._id == _id)
-                                // setCardDelete(remaining)
+                                if(loader){
+                                    setLoader(loading)
+                                }
                             }
                         })
                 } else {

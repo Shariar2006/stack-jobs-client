@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Banner from "./Banner";
 import axios from "axios";
 import JobsCategory from "./JobsCategory";
@@ -9,13 +9,16 @@ import Sponsored from "./Sponsored";
 
 
 
+
 const Home = () => {
+    
 
     const [jobData, setJobData] = useState()
     useEffect(() => {
         axios.get('/Jobs.json')
             .then(res => {
                 setJobData(res.data)
+                
             })
     }, [])
 

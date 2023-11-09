@@ -6,44 +6,44 @@ const Update = () => {
 
     const oldData = useLoaderData('')
 console.log(oldData)
-    const  {_id, name, jobTitle, salary, category, postDate, deadline, description, photo} = oldData
+    // const  {_id, name, jobTitle, salary, category, postDate, deadline, description, photo} = oldData
 
-    const handleUpdate = e =>{
-        e.preventDefault()
-        const form = e.target
-        const name = form.name.value
-        const jobTitle = form.jobTitle.value
-        const salary = form.salary.value
-        const category = form.category.value
-        const postDate = form.postDate.value
-        const deadline = form.deadline.value
-        const description = form.description.value
-        const photo = form.photo.value
+    // const handleUpdate = e =>{
+    //     e.preventDefault()
+    //     const form = e.target
+    //     const name = form.name.value
+    //     const jobTitle = form.jobTitle.value
+    //     const salary = form.salary.value
+    //     const category = form.category.value
+    //     const postDate = form.postDate.value
+    //     const deadline = form.deadline.value
+    //     const description = form.description.value
+    //     const photo = form.photo.value
 
-        const jobUpdate = {name, jobTitle, salary, category, postDate, deadline, description, photo,}
+    //     const jobUpdate = {name, jobTitle, salary, category, postDate, deadline, description, photo,}
         
-        fetch(`https://stack-jobs-server.vercel.app/myJobUpdate/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(jobUpdate)
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            if(data.modifiedCount){
-                swal("Good job!", "You product updated successfully!", "success");
+    //     fetch(`https://stack-jobs-server.vercel.app/myJobUpdate/${_id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(jobUpdate)
+    //     })
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         console.log(data)
+    //         if(data.modifiedCount){
+    //             swal("Good job!", "You product updated successfully!", "success");
                 
-            }
-        })
+    //         }
+    //     })
 
-    }
+    // }
 
     return (
         <div>
 
-                <form onSubmit={handleUpdate} className="h-full py-8 px-10 rounded-lg login">
+                {/* <form onSubmit={handleUpdate} className="h-full py-8 px-10 rounded-lg login">
                     <p className=' text-[#FFC501] text-4xl text-center font-bold mb-5'>Add A New Job</p>
 
 
@@ -125,7 +125,7 @@ console.log(oldData)
                     <div className=' '>
                         <input className='btn border-none bg-[#ffc501] hover:bg-[#053C75] text-center text-[#053C75] hover:text-[#ffc501] py-3 rounded-lg text-xl font-bold w-full my-4' type="submit" value="Update Job" />
                     </div>
-                </form>
+                </form> */}
                    
                     
         </div>
